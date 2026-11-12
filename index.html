@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<!-- custom -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bureau of Memetic Warfare ($BMW) on Solana</title>
+<meta name="description" content="The Bureau of Memetic Warfare. A parody department of shitposters studying memes as a contagion. Continue scrolling to be infected.">
+<meta property="og:title" content="Bureau of Memetic Warfare ($BMW)">
+<meta property="og:description" content="A parody bureau of shitposters. Memetic hazard ahead: continue scrolling to be infected.">
+<meta property="og:image" content="banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3d4520">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@600;800;900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#efe7d1;--paper:#f7f2e4;--paper2:#e6dcc0;--olive:#4b5320;--olive2:#3d4520;--olive3:#2a3016;--drab:#6b7240;
+  --ink:#1e2013;--yellow:#f2c018;--red:#c42a1c;--frog:#62b33a;--frog2:#3f8a22;--grey:#8d8b7c;--concrete:#a7a394;
+  --stencil:"Big Shoulders Stencil Display",Oswald,Impact,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--cond:Oswald,"Arial Narrow",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.st{font-family:var(--stencil);font-weight:900;letter-spacing:.02em;line-height:.92;text-transform:uppercase}
+.cond{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em}
+.tag{display:inline-block;font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;padding:4px 10px;border:1.5px solid currentColor}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:38px}
+.sec-h h2{font-size:clamp(46px,7.4vw,104px)}
+.sec-h .ref{font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-align:right;opacity:.75}
+.para{will-change:transform}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:16px;padding:9px 18px;background:rgba(42,48,22,.92);color:var(--cream);border-bottom:2px solid var(--yellow);backdrop-filter:blur(6px)}
+.nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--cond);font-weight:600;letter-spacing:.14em;font-size:13px;white-space:nowrap}
+.nav .brand svg{width:34px;height:34px}
+.nav .links{display:flex;gap:18px;margin-left:auto;font-family:var(--cond);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nav .links a{text-decoration:none;opacity:.85}
+.nav .links a:hover{opacity:1;color:var(--yellow)}
+.meter{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;white-space:nowrap}
+.meter .bar{width:84px;height:8px;border:1px solid var(--cream);position:relative;overflow:hidden}
+.meter .bar i{position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--frog) 0 5px,transparent 5px 7px);transform-origin:left;transform:scaleX(0)}
+.meter b{color:var(--frog);min-width:34px;display:inline-block;text-align:right}
+
+/* ---------- hero descent ---------- */
+.hero{position:relative;height:330vh;background:var(--olive3)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.layer{position:absolute;left:0;right:0;top:0}
+.world{height:calc(100vh + 230vh)}
+.sky{height:100vh;position:relative;background:
+   linear-gradient(rgba(75,83,32,.09) 1px,transparent 1px) 0 0/40px 40px,
+   linear-gradient(90deg,rgba(75,83,32,.09) 1px,transparent 1px) 0 0/40px 40px,
+   linear-gradient(#f4eedb,#e8dfc3 70%,#d9cfae)}
+.sky .sun{position:absolute;right:12%;top:13%;width:110px;height:110px;border-radius:50%;background:#f7d76a;box-shadow:0 0 0 14px rgba(247,215,106,.25)}
+.sky .cl{position:absolute;height:20px;border-radius:20px;background:#fbf8ee;box-shadow:30px -12px 0 4px #fbf8ee,70px -2px 0 -2px #fbf8ee}
+.ground{position:absolute;left:0;right:0;bottom:0;height:24vh;background:linear-gradient(#6b7240,#4b5320)}
+.ground:before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 10px 12px,#6b7240 9px,transparent 10px) 0 0/22px 12px repeat-x}
+.surface-svg{position:absolute;left:0;right:0;bottom:24vh;width:100%;height:36vh}
+.dish{transform-box:fill-box;transform-origin:50% 85%;animation:dish 7s ease-in-out infinite alternate}
+.dish.d2{animation-duration:9s;animation-delay:-3s}
+.dish.d3{animation-duration:6s;animation-delay:-1s}
+@keyframes dish{from{transform:rotate(-14deg)}to{transform:rotate(12deg)}}
+.blink{animation:blink 1.4s steps(1) infinite}
+@keyframes blink{50%{opacity:.15}}
+.title{position:absolute;left:0;right:0;top:11vh;text-align:center;color:var(--ink);padding:0 4vw}
+.title .tag{color:var(--red);background:rgba(247,242,228,.7)}
+.title h1{font-size:clamp(50px,8.6vw,150px);margin:12px 0 10px;color:var(--olive3)}
+.title h1 em{font-style:normal;color:var(--red)}
+.title p{font-size:clamp(13px,1.6vw,17px);max-width:640px;margin:0 auto;background:rgba(247,242,228,.75);padding:4px 10px}
+.title .cue{margin-top:18px;font-family:var(--cond);letter-spacing:.3em;font-size:12px;color:var(--olive)}
+.title .cue i{display:inline-block;animation:bob 1.6s ease-in-out infinite;font-style:normal}
+@keyframes bob{50%{transform:translateY(6px)}}
+.strata{height:230vh;display:flex;flex-direction:column}
+.band{position:relative;flex:1;border-top:3px solid rgba(0,0,0,.35);overflow:hidden}
+.band .lbl{position:absolute;left:calc(2vw + 64px);top:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,242,228,.85);max-width:40vw}
+.band .lbl b{display:block;font-family:var(--stencil);font-size:clamp(26px,4vw,52px);letter-spacing:.03em;line-height:1;color:rgba(247,242,228,.92);margin:2px 0}
+.band .lbl.r{left:auto;right:calc(2vw + 130px);text-align:right}
+.b1{flex:.7;background:radial-gradient(circle at 20% 30%,#5d4a2c 2px,transparent 3px) 0 0/26px 22px,linear-gradient(#5a4a2f,#4a3d27)}
+.b2{flex:.8;background:radial-gradient(circle,#8a8270 3px,transparent 4px) 0 0/19px 17px,radial-gradient(circle,#6e6758 5px,transparent 6px) 9px 8px/31px 27px,#77705e}
+.b3{flex:1.4;background:linear-gradient(90deg,transparent 0 47px,rgba(60,58,50,.45) 47px 51px) 0 0/98px 100%,linear-gradient(transparent 0 58px,rgba(60,58,50,.4) 58px 62px) 0 0/100% 120px,radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 2px) 0 0/7px 7px,#9d998a}
+.b4{flex:.6;background:repeating-linear-gradient(90deg,#4e5052 0 60px,#46484a 60px 120px)}
+.b5{flex:1.5;background:linear-gradient(#2b2f1b,#232714)}
+.b6{flex:.5;background:repeating-linear-gradient(-45deg,var(--yellow) 0 34px,#16170f 34px 68px)}
+.b6 .lbl{background:#16170f;padding:6px 10px;top:50%;transform:translateY(-50%)}
+.b7{flex:1.6;background:radial-gradient(ellipse at 50% 100%,rgba(98,179,58,.35),transparent 60%),#141809}
+.corridor{position:absolute;inset:18% 0 12% 0;display:flex;justify-content:space-around;align-items:flex-start;padding:0 6vw}
+.corridor .lamp{width:4px;height:40px;background:#555}
+.corridor .lamp:after{content:"";display:block;width:30px;height:12px;margin:40px 0 0 -13px;background:#f6dd8a;border-radius:0 0 30px 30px;box-shadow:0 30px 70px 30px rgba(246,221,138,.18)}
+.crates{position:absolute;bottom:0;left:0;right:0;height:34%;display:flex;gap:2vw;align-items:flex-end;justify-content:center}
+.crates i{display:block;width:clamp(50px,8vw,110px);height:clamp(44px,7vw,90px);background:linear-gradient(45deg,transparent 46%,rgba(0,0,0,.25) 46% 54%,transparent 54%),var(--olive);border:3px solid #2c3114;font:normal 10px var(--mono);color:var(--cream);text-align:center;padding-top:6px;letter-spacing:.1em}
+.crates i:nth-child(2n){height:clamp(60px,9vw,120px);background-color:var(--drab)}
+.rock{height:calc(100vh + 170vh);background:radial-gradient(circle,rgba(0,0,0,.18) 1.5px,transparent 2.5px) 0 0/44px 52px;opacity:.6;pointer-events:none}
+.pipes{height:calc(100vh + 320vh);pointer-events:none}
+.pipes .p{position:absolute;top:96vh;bottom:0;width:16px;background:linear-gradient(90deg,#33361f,#6b6f52 40%,#2a2d17)}
+.pipes .p:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 0 60px,#20220f 60px 72px) 0 0/100% 210px}
+.pipes .p.r1{left:2vw}.pipes .p.r2{left:calc(2vw + 22px);width:9px;background:linear-gradient(90deg,#5c1a12,#c42a1c 45%,#5c1a12)}
+.pipes .p.r3{right:2vw}.pipes .p.r4{right:calc(2vw + 24px);width:10px;background:linear-gradient(90deg,#8a6f0c,#f2c018 45%,#8a6f0c)}
+.shaft{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:repeating-linear-gradient(#cfc8ae 0 6px,transparent 6px 10px);opacity:0}
+.cage{position:absolute;left:50%;top:38%;width:86px;height:104px;margin-left:-43px;border:3px solid var(--yellow);background:repeating-linear-gradient(90deg,transparent 0 12px,rgba(242,192,24,.55) 12px 14px);opacity:0}
+.cage:before{content:"YOU";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 11px var(--mono);letter-spacing:.2em;color:var(--ink);background:var(--yellow);padding:2px 6px}
+.cage:after{content:"";position:absolute;left:50%;top:-100vh;height:100vh;width:2px;margin-left:-1px;background:#cfc8ae}
+.core{position:absolute;inset:0;opacity:0;background:radial-gradient(ellipse at 50% 55%,#24301a,#0d1006 75%)}
+.core canvas{position:absolute;inset:0;width:100%;height:100%}
+.core-hud{position:absolute;left:0;right:0;bottom:8vh;text-align:center;color:var(--cream);opacity:0;padding:0 5vw}
+.core-hud .tag{color:var(--frog);background:rgba(13,16,6,.7)}
+.core-hud h2{font-size:clamp(40px,7vw,96px);margin:12px 0 8px;text-shadow:0 0 30px rgba(98,179,58,.5)}
+.core-hud p{max-width:620px;margin:0 auto 16px;font-size:14px;opacity:.85}
+.gauge{position:absolute;right:16px;top:90px;bottom:40px;width:64px;color:var(--cream);font-size:10px;letter-spacing:.08em;pointer-events:none;mix-blend-mode:difference}
+.gauge .rule{position:absolute;right:0;top:0;bottom:0;width:14px;border-left:1px solid currentColor;background:repeating-linear-gradient(currentColor 0 1px,transparent 1px 12px)}
+.gauge .ptr{position:absolute;right:16px;top:0;white-space:nowrap;text-align:right;transform:translateY(-50%)}
+.gauge .ptr b{display:block;font-size:15px}
+
+/* CA box */
+.ca{display:flex;align-items:stretch;max-width:560px;margin:0 auto;border:2px solid var(--ink);background:var(--paper);font-size:13px;text-align:left}
+.ca label{padding:9px 12px;background:var(--ink);color:var(--yellow);font-weight:700;letter-spacing:.12em;white-space:nowrap}
+.ca code{flex:1;padding:9px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--mono);color:var(--ink)}
+.ca button{border:0;border-left:2px solid var(--ink);background:var(--yellow);color:var(--ink);font-weight:700;letter-spacing:.12em;padding:0 16px}
+.ca button:hover{background:var(--red);color:var(--paper)}
+.core-hud .ca{border-color:var(--frog)}
+
+/* ---------- hazard ---------- */
+.hazard{position:relative;min-height:100vh;min-height:100svh;background:var(--yellow);display:flex;align-items:center;justify-content:center;padding:90px 5vw;overflow:hidden}
+.hazard:before,.hazard:after{content:"";position:absolute;left:0;right:0;height:44px;background:repeating-linear-gradient(-45deg,#16170f 0 26px,var(--yellow) 26px 52px)}
+.hazard:before{top:0}.hazard:after{bottom:0}
+.hz-card{position:relative;max-width:980px;text-align:center;color:#16170f}
+.hz-sign{width:min(250px,48vw);margin:0 auto 18px}
+.hz-card h2{font-size:clamp(56px,11vw,168px);line-height:.86}
+.hz-card h2 small{display:block;font-size:.34em;letter-spacing:.06em;margin-top:14px}
+.hz-card p{max-width:640px;margin:22px auto 0;font-size:15px;font-weight:500}
+.hz-card .fine{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:18px;opacity:.75}
+.hz-float{position:absolute;width:clamp(120px,15vw,210px);border:4px solid #16170f;box-shadow:8px 8px 0 #16170f}
+.hz-float.f1{left:4vw;top:16%;rotate:-7deg}
+.hz-float.f2{right:4vw;bottom:14%;rotate:6deg;width:clamp(150px,22vw,300px)}
+
+/* ---------- doctrine ---------- */
+.doctrine{position:relative;padding:120px 0 130px;background:
+   linear-gradient(rgba(75,83,32,.07) 1px,transparent 1px) 0 0/28px 28px,
+   linear-gradient(90deg,rgba(75,83,32,.07) 1px,transparent 1px) 0 0/28px 28px,var(--cream)}
+.manual{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:46px;align-items:start}
+.sheet{position:relative;background:var(--paper);padding:54px 50px 46px;box-shadow:0 1px 0 #d8ceb1,0 18px 40px -18px rgba(42,48,22,.45);border-left:30px solid #e9e0c6}
+.sheet:before{content:"";position:absolute;left:-19px;top:40px;bottom:40px;width:8px;background:radial-gradient(circle,#d0c6a8 4px,transparent 5px) 0 0/8px 64px}
+.sheet .hdr{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:26px}
+.sheet h3.fm{font-family:var(--cond);font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase;line-height:1.1;margin-bottom:6px}
+.sheet .sub{font-size:12px;opacity:.75;margin-bottom:28px}
+.art{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:16px 0;border-top:1px dashed rgba(30,32,19,.35)}
+.art .no{font-family:var(--stencil);font-size:38px;line-height:.9;color:var(--red)}
+.art h4{font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.art p{font-size:14px}
+.art p i{background:rgba(242,192,24,.45);font-style:normal;padding:0 3px}
+.stamp{position:absolute;top:-22px;right:-14px;padding:8px 16px;border:4px double var(--red);color:var(--red);font-family:var(--stencil);font-size:30px;letter-spacing:.06em;transform:rotate(9deg);opacity:.85;background:rgba(247,242,228,.4)}
+.figs{display:flex;flex-direction:column;gap:34px}
+figure.fig{background:var(--paper);padding:14px 14px 12px;box-shadow:0 14px 30px -16px rgba(42,48,22,.5);cursor:zoom-in}
+figure.fig:nth-child(1){rotate:1.6deg}
+figure.fig:nth-child(2){rotate:-1.4deg}
+figure.fig:nth-child(3){rotate:1deg}
+figure.fig img{width:100%;border:1px solid #cfc5a6}
+figure.fig figcaption{font-size:11.5px;letter-spacing:.06em;margin-top:9px;display:flex;justify-content:space-between;gap:10px}
+figure.fig figcaption b{color:var(--red)}
+.margin-note{font-size:12px;color:var(--olive);border-left:3px solid var(--olive);padding:6px 0 6px 12px;transform:rotate(-1deg)}
+
+/* ---------- badges ---------- */
+.badges{position:relative;padding:120px 0 140px;color:var(--cream);background:
+   repeating-linear-gradient(45deg,rgba(0,0,0,.08) 0 2px,transparent 2px 5px),
+   repeating-linear-gradient(-45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 6px),
+   radial-gradient(ellipse at 30% 20%,#5a6229,#3d4520 70%)}
+.badges .sec-h .ref{color:var(--cream)}
+.uniform{position:relative;border:2px dashed rgba(239,231,209,.35);border-radius:6px;padding:46px 34px 40px;box-shadow:inset 0 0 0 10px rgba(0,0,0,.08)}
+.tapes{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:34px}
+.tape{background:#2f3417;color:#e2d9bb;font-family:var(--stencil);font-size:24px;letter-spacing:.14em;padding:6px 18px;outline:2px dashed rgba(226,217,187,.45);outline-offset:-6px}
+.patches{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 30px;perspective:900px}
+.patch{position:relative;cursor:zoom-in;transition:transform .25s ease-out;transform-style:preserve-3d;background:none;border:0;padding:0;color:inherit;text-align:center}
+.patch .face{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#20240f;box-shadow:0 0 0 5px #2a2f15,0 0 0 7px rgba(226,217,187,.5),0 14px 22px -8px rgba(0,0,0,.6)}
+.patch .face:after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px dashed rgba(240,232,205,.55);pointer-events:none}
+.patch.sh .face{border-radius:14% 14% 50% 50%/10% 10% 55% 55%}
+.patch.sh .face:after{border-radius:inherit}
+.patch.sq .face{border-radius:10px}
+.patch.sq .face:after{border-radius:6px}
+.patch img{width:100%;height:100%;object-fit:cover}
+.patch .glare{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.28),transparent 55%);pointer-events:none}
+.patch small{display:block;margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.patch:focus-visible{outline:3px solid var(--yellow);outline-offset:8px}
+.patch .seal-face{background:var(--paper);display:flex;align-items:center;justify-content:center}
+.patch .seal-face svg{width:100%;height:100%}
+
+/* ---------- map ---------- */
+.mapsec{position:relative;padding:120px 0 130px;background:#e3dabd;overflow:hidden}
+.mapsec:before{content:"";position:absolute;inset:0;background:
+   linear-gradient(rgba(30,32,19,.08) 1px,transparent 1px) 0 0/50px 50px,
+   linear-gradient(90deg,rgba(30,32,19,.08) 1px,transparent 1px) 0 0/50px 50px;pointer-events:none}
+.mapgrid{position:relative;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:26px}
+.mapbox{position:relative;background:var(--paper);border:2px solid var(--ink);padding:14px}
+.mapbox .mh{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:8px}
+#map{width:100%;height:auto;display:block}
+#map .d{fill:#8a8a6a;transition:fill .5s,r .5s}
+#map .d.on{fill:var(--frog2)}
+#map .d.hot{fill:var(--red)}
+#map .arc{fill:none;stroke:var(--red);stroke-width:1.6;stroke-dasharray:4 5}
+#map .ring{fill:none;stroke:var(--red);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2.2s ease-out infinite}
+@keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(3.2);opacity:0}}
+#map .seed{fill:var(--red)}
+#map .lab{font:600 11px var(--mono);fill:var(--ink);letter-spacing:.06em}
+.stats{display:flex;flex-direction:column;gap:14px}
+.stat{background:var(--olive3);color:var(--cream);padding:14px 16px;border-left:6px solid var(--frog)}
+.stat span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.stat b{display:block;font-family:var(--stencil);font-size:40px;line-height:1;color:var(--frog);margin-top:4px}
+.log{background:var(--paper);border:2px solid var(--ink);padding:12px 14px;font-size:11.5px;line-height:1.5;flex:1;min-height:200px}
+.log h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;border-bottom:1px solid var(--ink);padding-bottom:6px}
+.log p{opacity:0;transform:translateY(6px);transition:.5s;margin-bottom:6px}
+.log p.on{opacity:1;transform:none}
+.log p b{color:var(--red)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+/* ---------- enlist ---------- */
+.enlist{position:relative;padding:120px 0 130px;background:var(--olive2);color:var(--cream)}
+.enlist .sec-h .ref{color:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.step{position:relative;background:var(--paper);color:var(--ink);padding:26px 22px 24px;margin-right:34px;border-top:8px solid var(--yellow)}
+.step:last-child{margin-right:0}
+.step:not(:last-child):after{content:"";position:absolute;right:-34px;top:60px;width:34px;height:2px;background:var(--yellow)}
+.step:not(:last-child):before{content:"";position:absolute;right:-36px;top:55px;border:6px solid transparent;border-left:9px solid var(--yellow);border-right:0}
+.step .n{font-family:var(--stencil);font-size:64px;line-height:.85;color:var(--olive)}
+.step svg{width:54px;height:54px;position:absolute;right:18px;top:22px}
+.step h3{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase;margin:12px 0 8px;line-height:1.15}
+.step p{font-size:13px}
+.step p a{color:var(--red);font-weight:700}
+.enlist .ca{margin-top:46px;max-width:720px}
+.enlist .note{text-align:center;margin-top:14px;font-size:12px;opacity:.75}
+
+/* ---------- requisition ---------- */
+.req{position:relative;padding:120px 0 130px;background:var(--cream)}
+.form{position:relative;max-width:900px;margin:0 auto;background:var(--paper);border:2px solid var(--ink);box-shadow:14px 14px 0 var(--olive)}
+.form .fh{display:grid;grid-template-columns:1fr auto;border-bottom:2px solid var(--ink)}
+.form .fh div{padding:16px 20px}
+.form .fh div+div{border-left:2px solid var(--ink);text-align:right;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.form .fh h3{font-family:var(--cond);font-weight:700;font-size:24px;letter-spacing:.06em;text-transform:uppercase;line-height:1.1}
+.row{display:grid;grid-template-columns:54px 1fr 1.1fr;border-bottom:1px solid var(--ink);align-items:stretch}
+.row>*{padding:14px 16px}
+.row .cb{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--ink);padding:10px}
+.row .cb svg{width:28px;height:28px}
+.row .cb rect{fill:none;stroke:var(--ink);stroke-width:2}
+.row .cb path{fill:none;stroke:var(--red);stroke-width:3.4;stroke-linecap:round;stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset .5s ease-out}
+.row.on .cb path{stroke-dashoffset:0}
+.row .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-right:1px solid var(--ink);display:flex;align-items:center}
+.row .v{font-family:var(--stencil);font-size:clamp(28px,4vw,46px);line-height:1;display:flex;align-items:center;gap:10px}
+.row .v sup{font-family:var(--mono);font-size:12px;color:var(--red)}
+.form .sig{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.form .sig div{padding:18px 20px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.form .sig div+div{border-left:1px solid var(--ink)}
+.form .sig .line{display:block;border-bottom:1px solid var(--ink);height:34px;margin-bottom:6px;font-family:var(--cond);font-size:22px;text-transform:none;letter-spacing:0;color:var(--olive)}
+.form .approved{position:absolute;right:30px;bottom:70px;font-family:var(--stencil);font-size:44px;color:var(--frog2);border:5px solid var(--frog2);padding:4px 16px;transform:rotate(-12deg) scale(1.6);opacity:0;transition:.4s cubic-bezier(.3,1.6,.5,1);pointer-events:none;background:rgba(247,242,228,.6)}
+.form.on .approved{opacity:.9;transform:rotate(-12deg) scale(1)}
+.req .foot{max-width:900px;margin:22px auto 0;font-size:12px;opacity:.8}
+
+/* ---------- comms ---------- */
+.comms{padding:100px 0;background:var(--olive3);color:var(--cream);text-align:center}
+.comms h2{font-size:clamp(44px,7vw,96px);margin-bottom:12px}
+.comms p{opacity:.8;margin-bottom:34px}
+.dials{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.dial{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;width:150px;padding:20px 10px 16px;border:2px solid rgba(239,231,209,.35);background:#20250f;transition:.2s}
+.dial:hover{border-color:var(--yellow);transform:translateY(-4px)}
+.dial .knob{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7b8150,#2a2f15);border:3px solid #15180a;position:relative;transition:transform .5s}
+.dial .knob:after{content:"";position:absolute;left:50%;top:5px;width:4px;height:18px;margin-left:-2px;background:var(--yellow);border-radius:2px}
+.dial:hover .knob{transform:rotate(120deg)}
+.dial b{font-family:var(--cond);letter-spacing:.14em;font-size:15px;text-transform:uppercase}
+.dial span{font-size:10.5px;opacity:.65;letter-spacing:.1em}
+
+/* ---------- footer ---------- */
+footer{background:#15180a;color:#cfc7ab;padding:60px 0 50px;font-size:12px}
+.fgrid{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:start}
+.fgrid svg{width:120px;height:120px}
+footer h4{font-family:var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);font-size:14px;margin-bottom:8px}
+footer p{margin-bottom:10px;max-width:820px}
+footer .ca{margin:18px 0 0;max-width:560px}
+
+/* ---------- infection overlay, glitch, lightbox ---------- */
+#tint{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:0;background:radial-gradient(ellipse at center,rgba(98,179,58,.12),rgba(63,138,34,.55) 120%);mix-blend-mode:multiply}
+.glitch{color:var(--frog2)!important;text-shadow:2px 0 var(--red),-2px 0 var(--frog);animation:gj .12s steps(2) infinite}
+@keyframes gj{50%{transform:translateX(2px) skewX(-8deg)}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,16,6,.92);display:none;align-items:center;justify-content:center;padding:5vh 5vw;flex-direction:column;gap:14px}
+.lb.open{display:flex}
+.lb img{max-width:min(900px,90vw);max-height:78vh;border:6px solid var(--paper);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb p{color:var(--cream);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.lb button{position:absolute;top:16px;right:18px;background:var(--yellow);border:0;color:var(--ink);font-weight:700;padding:8px 14px;letter-spacing:.14em}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;z-index:90;background:var(--ink);color:var(--yellow);padding:10px 16px;font-size:12px;letter-spacing:.12em;transition:.3s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .patches{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr 1fr;gap:26px}
+  .step{margin-right:0}.step:after,.step:before{display:none}
+  .mapgrid{grid-template-columns:1fr}
+  .stats{flex-direction:row;flex-wrap:wrap}.stat{flex:1;min-width:150px}.log{flex-basis:100%}
+}
+@media (max-width:820px){
+  .manual{grid-template-columns:1fr}
+  .figs{flex-direction:row;overflow-x:auto;gap:18px;padding:10px 4px 18px}
+  .figs figure{min-width:62vw}
+  .nav .links{display:none}
+  .meter{margin-left:auto}
+}
+@media (max-width:560px){
+  body{font-size:14px}
+  .hero{height:280vh}
+  .sheet{padding:40px 20px 30px;border-left-width:16px}
+  .sheet:before{left:-12px}
+  .art{grid-template-columns:52px 1fr}
+  .art .no{font-size:30px}
+  .stamp{font-size:20px;right:-6px;top:-16px}
+  .patches{grid-template-columns:1fr 1fr;gap:28px 22px}
+  .uniform{padding:30px 16px}
+  .tape{font-size:18px}
+  .steps{grid-template-columns:1fr}
+  .row{grid-template-columns:44px 1fr}
+  .row .v{grid-column:2;border-top:1px dashed rgba(30,32,19,.3)}
+  .row .cb{grid-row:span 2}
+  .row .k{border-right:0}
+  .form .fh{grid-template-columns:1fr}.form .fh div+div{border-left:0;border-top:2px solid var(--ink);text-align:left}
+  .form .sig{grid-template-columns:1fr}.form .sig div+div{border-left:0;border-top:1px solid var(--ink)}
+  .form .approved{font-size:30px;right:14px;bottom:150px}
+  .fgrid{grid-template-columns:1fr}
+  .ca{font-size:12px}.ca label{padding:9px 8px}
+  .nav .brand span{display:none}
+  .gauge{right:6px;width:54px;top:64vh;bottom:20px}
+  .hz-float{display:none}
+  .band .lbl{max-width:70vw}
+  .band .lbl.r{display:none}
+  .dial{width:44%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero{height:auto}
+  .stage{position:relative;height:auto}
+  .stage .layer,.stage .core{position:relative}
+  .world{height:auto}.strata,.rock,.pipes,.gauge,.cage,.shaft{display:none}
+  .core{opacity:1;height:80vh}.core-hud{opacity:1}
+  .dish,.blink,.title .cue i,#map .ring,.glitch{animation:none}
+  .patch,.dial .knob,.row .cb path,.form .approved,.log p{transition:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="ringpath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+    <symbol id="seal" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="97" fill="#3d4520"/>
+      <circle cx="100" cy="100" r="91" fill="none" stroke="#efe7d1" stroke-width="2"/>
+      <circle cx="100" cy="100" r="61" fill="#f7f2e4" stroke="#efe7d1" stroke-width="3"/>
+      <circle cx="100" cy="100" r="56" fill="none" stroke="#3d4520" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <text font-family="Oswald,Arial Narrow,sans-serif" font-weight="600" font-size="13" fill="#efe7d1"><textPath href="#ringpath" textLength="452" lengthAdjust="spacing">BUREAU OF MEMETIC WARFARE · MEMETIC OPERATIONS ·</textPath></text>
+      <g transform="translate(100 100)">
+        <!-- open field manual -->
+        <path d="M0,20 Q-17,12 -34,17 V40 Q-17,35 0,42Z" fill="#fbf8ee" stroke="#3d4520" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M0,20 Q17,12 34,17 V40 Q17,35 0,42Z" fill="#fbf8ee" stroke="#3d4520" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M-28,26 Q-17,23 -6,27 M-28,32 Q-17,29 -6,33 M6,27 Q17,23 28,26 M6,33 Q17,29 28,32" stroke="#3d4520" stroke-width="1.2" fill="none"/>
+        <path d="M0,20 V42" stroke="#c42a1c" stroke-width="2"/>
+        <!-- frog head -->
+        <g transform="translate(0 -12) scale(.86)">
+          <ellipse cx="0" cy="12" rx="35" ry="22" fill="#62b33a" stroke="#1e2013" stroke-width="2.4"/>
+          <circle cx="-16" cy="-8" r="13" fill="#62b33a" stroke="#1e2013" stroke-width="2.4"/>
+          <circle cx="16" cy="-8" r="13" fill="#62b33a" stroke="#1e2013" stroke-width="2.4"/>
+          <ellipse cx="0" cy="8" rx="30" ry="12" fill="#62b33a"/>
+          <circle cx="-16" cy="-7" r="8.5" fill="#fff" stroke="#1e2013" stroke-width="1.5"/>
+          <circle cx="16" cy="-7" r="8.5" fill="#fff" stroke="#1e2013" stroke-width="1.5"/>
+          <circle cx="-13" cy="-6" r="3.8" fill="#1e2013"/>
+          <circle cx="19" cy="-6" r="3.8" fill="#1e2013"/>
+          <path d="M-27,-12 Q-16,-16 -5,-12 M5,-12 Q16,-16 27,-12" stroke="#3f8a22" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M-24,16 Q0,30 24,16" fill="none" stroke="#c42a1c" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <text x="100" y="60" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="700" font-size="7" letter-spacing="1.4" fill="#3d4520">EST. 1976</text>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="tint" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top"><svg><use href="#seal"/></svg><span data-k>B.M.W. // BUREAU OF MEMETIC WARFARE</span></a>
+  <div class="links">
+    <a href="#doctrine" data-k>Doctrine</a><a href="#insignia" data-k>Insignia</a><a href="#outbreak" data-k>Outbreak</a><a href="#enlist" data-k>Enlist</a><a href="#requisition" data-k>Requisition</a>
+  </div>
+  <div class="meter" title="Your current infection level">INFECTION <span class="bar"><i id="mbar"></i></span><b id="mval">00%</b></div>
+</nav>
+
+<!-- ================= HERO: DESCENT ================= -->
+<header class="hero" id="top">
+  <div class="stage" id="stage">
+    <div class="layer world para" id="lWorld">
+      <div class="sky">
+        <div class="sun"></div>
+        <div class="ground"></div>
+        <svg class="surface-svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <!-- fence -->
+          <g stroke="#3d4520" stroke-width="2" fill="none" opacity=".7">
+            <path d="M0,370 H1200 M0,345 H1200"/>
+            <path d="M0,330 V400 M60,330 V400 M120,330 V400 M180,330 V400 M240,330 V400 M300,330 V400 M360,330 V400 M840,330 V400 M900,330 V400 M960,330 V400 M1020,330 V400 M1080,330 V400 M1140,330 V400 M1200,330 V400"/>
+          </g>
+          <!-- dish 1 -->
+          <g transform="translate(150 150)">
+            <path d="M40,250 L70,90 L100,250 M52,190 H88 M58,150 H82" stroke="#2a3016" stroke-width="5" fill="none"/>
+            <g class="dish"><path d="M10,60 Q70,140 130,60 Z" fill="#efe7d1" stroke="#2a3016" stroke-width="5"/><path d="M70,95 L70,28" stroke="#2a3016" stroke-width="4"/><circle cx="70" cy="24" r="6" fill="#c42a1c"/></g>
+          </g>
+          <!-- dish 2 big -->
+          <g transform="translate(860 40)">
+            <path d="M60,360 L110,150 L160,360 M75,300 H145 M88,240 H132 M98,195 H122" stroke="#2a3016" stroke-width="6" fill="none"/>
+            <g class="dish d2"><path d="M0,100 Q110,230 220,100 Z" fill="#f4eedb" stroke="#2a3016" stroke-width="6"/><path d="M110,160 L110,40" stroke="#2a3016" stroke-width="5"/><circle cx="110" cy="36" r="8" fill="#c42a1c"/></g>
+          </g>
+          <!-- dish 3 small -->
+          <g transform="translate(1080 230)">
+            <path d="M30,170 L45,70 L60,170" stroke="#2a3016" stroke-width="4" fill="none"/>
+            <g class="dish d3"><path d="M0,40 Q45,95 90,40 Z" fill="#efe7d1" stroke="#2a3016" stroke-width="4"/></g>
+          </g>
+          <!-- antenna mast -->
+          <g transform="translate(330 0)">
+            <path d="M30,400 L40,40 L50,400 M33,300 L47,250 M47,300 L33,250 M35,200 L45,150 M45,200 L35,150 M37,110 L43,70" stroke="#2a3016" stroke-width="3" fill="none"/>
+            <circle class="blink" cx="40" cy="34" r="7" fill="#c42a1c"/>
+          </g>
+          <!-- bunker -->
+          <g transform="translate(560 250)">
+            <path d="M0,150 V70 Q0,20 70,20 H170 Q240,20 240,70 V150Z" fill="#9d998a" stroke="#2a3016" stroke-width="5"/>
+            <path d="M85,150 V85 H155 V150" fill="#2a3016"/>
+            <rect x="85" y="85" width="70" height="14" fill="#f2c018"/>
+            <path d="M85,85 l14,14 M99,85 l14,14 M113,85 l14,14 M127,85 l14,14 M141,85 l14,14" stroke="#16170f" stroke-width="5"/>
+            <text x="120" y="62" text-anchor="middle" font-family="Big Shoulders Stencil Display,Oswald,sans-serif" font-weight="900" font-size="30" fill="#2a3016">SITE K-7</text>
+          </g>
+        </svg>
+        <div class="title para" id="lTitle">
+          <span class="tag" data-k>Classified // Eyes only // Parody</span>
+          <h1 class="st"><span data-k>Bureau of</span> <span data-k>Memetic</span><br><em data-k>Warfare</em></h1>
+          <p><b>$BMW</b> · a bureau of shitposters studying memes as a contagion, since Dawkins coined the word in 1976. Scroll to descend into Site K-7.</p>
+          <div class="cue">DESCEND <i>▼</i></div>
+        </div>
+      </div>
+      <div class="strata">
+        <div class="band b1"><div class="lbl">Stratum 01 / topsoil<b data-k>Surface Cover</b>0.0 - 1.2 m</div></div>
+        <div class="band b2"><div class="lbl r">Stratum 02 / aggregate<b data-k>Gravel Bed</b>1.2 - 6 m</div></div>
+        <div class="band b3"><div class="lbl">Stratum 03 / anti-irony shielding<b data-k>Reinforced Concrete</b>6 - 40 m · rated against 4chan, 9gag and group chats</div></div>
+        <div class="band b4"><div class="lbl r">Stratum 04 / cognitive lead<b data-k>Lead Lining</b>blocks normie radiation</div></div>
+        <div class="band b5"><div class="corridor"><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span></div><div class="lbl">Sublevel 2 / archive<b data-k>Meme Vault</b>est. 4.2 billion reaction images, catalogued</div><div class="crates"><i>KEK</i><i>RARE</i><i>LOL</i><i>F</i><i>OC</i></div></div>
+        <div class="band b6"><div class="lbl">Blast door / authorised operators only<b>Do not explain the joke</b></div></div>
+        <div class="band b7"><div class="lbl r">Sublevel 3<b data-k>Ideosphere Core</b>containment: failing</div></div>
+      </div>
+    </div>
+    <div class="layer rock para" id="lRock"></div>
+    <div class="layer pipes para" id="lPipes"><span class="p r1"></span><span class="p r2"></span><span class="p r3"></span><span class="p r4"></span></div>
+    <div class="cage" id="cage" aria-hidden="true"></div>
+    <div class="core" id="core">
+      <canvas id="sphere" aria-label="Animated network of memes spreading between nodes"></canvas>
+      <div class="core-hud" id="coreHud">
+        <span class="tag">Sublevel 3 · ideosphere core</span>
+        <h2 class="st"><span data-k>Contagion</span> <span data-k>in progress</span></h2>
+        <p>Each node is a mind. Green ones have seen the frog. Containment has never worked, so the Bureau stopped trying.</p>
+        <div class="ca"><label>CA</label><code class="ca-val">CA: coming soon</code><button type="button" class="copy">COPY</button></div>
+      </div>
+    </div>
+    <div class="gauge" aria-hidden="true"><div class="rule"></div><div class="ptr" id="ptr"><b id="depth">-000 m</b><span id="lvl">SURFACE</span></div></div>
+  </div>
+</header>
+
+<!-- ================= HAZARD ================= -->
+<section class="hazard" id="hazard">
+  <img class="hz-float f1 para" data-speed="-.12" src="meme_dragon.jpg" alt="Yellow dragon wrapped around a Memetic Hazard sign" loading="lazy">
+  <img class="hz-float f2 para" data-speed=".1" src="meme_danger.jpg" alt="Danger: memetic hazard sign" loading="lazy">
+  <div class="hz-card">
+    <svg class="hz-sign para" data-speed="-.06" viewBox="0 0 200 180" role="img" aria-label="Hazard pictogram">
+      <path d="M100,8 L194,172 H6Z" fill="#f2c018" stroke="#16170f" stroke-width="12" stroke-linejoin="round"/>
+      <path d="M62,138 Q62,98 100,96 Q138,98 138,138Z" fill="#16170f"/>
+      <circle cx="84" cy="96" r="14" fill="#16170f"/><circle cx="116" cy="96" r="14" fill="#16170f"/>
+      <circle cx="84" cy="96" r="6" fill="#f2c018"/><circle cx="116" cy="96" r="6" fill="#f2c018"/>
+      <path d="M76,122 Q100,134 124,122" stroke="#f2c018" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M140,62 q10,-10 0,-20 M152,70 q18,-18 0,-36 M60,62 q-10,-10 0,-20 M48,70 q-18,-18 0,-36" stroke="#16170f" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <h2 class="st"><span data-k>Memetic Hazard</span><small data-k>Continue scrolling to be infected</small></h2>
+    <p>Beyond this line, material has been cleared for exposure to the general public. Side effects include unprompted laughter, reaction-image recall and the urge to reply "kek". The Bureau accepts no liability for cognitive reconfiguration.</p>
+    <div class="fine">Exposure is cumulative · infection meter top right · there is no cure</div>
+  </div>
+</section>
+
+<!-- ================= DOCTRINE ================= -->
+<section class="doctrine" id="doctrine">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="st"><span data-k>Bureau</span> <span data-k>Doctrine</span></h2>
+      <div class="ref">Field manual FM 33-KEK<br>Distribution: unlimited, obviously</div>
+    </div>
+    <div class="manual">
+      <article class="sheet para" data-speed="-.03">
+        <div class="stamp">RESTRICTED</div>
+        <div class="hdr"><span>FM 33-KEK</span><span>Page 1 of 1</span></div>
+        <h3 class="fm">Doctrine of memetic operations</h3>
+        <div class="sub">Supersedes all previous doctrine, none of which anyone read.</div>
+        <div class="art"><div class="no">I.</div><div><h4 data-k>The unit of transmission</h4><p>A meme is a unit of cultural transmission (Dawkins, <i>The Selfish Gene</i>, 1976). The Bureau handles it with the care due to any live material.</p></div></div>
+        <div class="art"><div class="no">II.</div><div><h4 data-k>Replication over fidelity</h4><p>A meme that mutates survives. Operators shall not object when their work is cropped, deep-fried or reposted without credit. That is the mission working.</p></div></div>
+        <div class="art"><div class="no">III.</div><div><h4 data-k>Sufficient to meet the minds</h4><p>A meme needs only to be understood to be deployed. If it needs a paragraph, return it to the lab.</p></div></div>
+        <div class="art"><div class="no">IV.</div><div><h4 data-k>Never explain the joke</h4><p>An explained meme is a decommissioned meme. Violators are reassigned to writing corporate social media.</p></div></div>
+        <div class="art"><div class="no">V.</div><div><h4 data-k>War never changes</h4><p>Only the reaction images do. Every operator is issued six monitors and one chair. Requests for a second chair are denied.</p></div></div>
+        <div class="art"><div class="no">VI.</div><div><h4 data-k>The ideosphere is terrain</h4><p>Ideas compete for limited attention, as organisms compete for food. Hold the high ground. The high ground is the reply section.</p></div></div>
+        <div class="art"><div class="no">VII.</div><div><h4 data-k>Label every hazard</h4><p>Memetic hazards must be marked in yellow. This page was marked. You kept scrolling anyway. Note this in your file.</p></div></div>
+        <div class="art"><div class="no">VIII.</div><div><h4 data-k>The kek is a unit</h4><p>The Bureau measures laughter in keks. One kek is the laughter needed to make one person screenshot something.</p></div></div>
+        <div class="art"><div class="no">IX.</div><div><h4 data-k>No financial advice</h4><p>Financial advice is outside the Bureau's mandate. $BMW is a parody meme token with no intrinsic value. Operators deploy only what they can afford to lose.</p></div></div>
+      </article>
+      <div class="figs">
+        <figure class="fig para" data-speed=".06" data-lb="meme_warneverchanges.jpg" data-cap="Fig. 1 · Standard operator workstation"><img src="meme_warneverchanges.jpg" alt="Pepe in a Born to Meme helmet at a desk with six monitors, captioned War never changes" loading="lazy"><figcaption><span><b>Fig. 1</b> Standard operator workstation</span><span>Art. V</span></figcaption></figure>
+        <figure class="fig para" data-speed=".1" data-lb="meme_periodic.jpg" data-cap="Fig. 2 · Reference chart, issued to all recruits"><img src="meme_periodic.jpg" alt="The Periodic Table of Memes" loading="lazy"><figcaption><span><b>Fig. 2</b> Reference chart, issued to recruits</span><span>Art. I</span></figcaption></figure>
+        <figure class="fig para" data-speed=".14" data-lb="meme_ideosphere.jpg" data-cap="Fig. 3 · Ideosphere, artist's impression"><img src="meme_ideosphere.jpg" alt="Psychedelic artwork titled Memetic Ideosphere" loading="lazy"><figcaption><span><b>Fig. 3</b> Ideosphere, artist's impression</span><span>Art. VI</span></figcaption></figure>
+        <div class="margin-note">Margin note, Training Officer: "if you understood all three figures, you are already infected. welcome."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSIGNIA ================= -->
+<section class="badges" id="insignia">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="st"><span data-k>Insignia</span> <span data-k>&amp; Patches</span></h2>
+      <div class="ref">Uniform regulation AR 670-KEK<br>Click a patch to inspect</div>
+    </div>
+    <div class="uniform">
+      <div class="tapes"><span class="tape">B.M.W.</span><span class="tape">MEMETIC OPS</span><span class="tape">SHITPOSTER 1ST CL.</span></div>
+      <div class="patches" id="patches">
+        <button class="patch para" data-speed=".03" data-lb="logo.png" data-cap="Meme Magic Operations Corps · unit badge"><div class="face"><img src="logo.png" alt="Meme Magic Operations Corps badge" loading="lazy"><span class="glare"></span></div><small>Meme Magic Ops Corps</small></button>
+        <button class="patch para" data-speed=".07" data-lb="meme_kek_gold.jpg" data-cap="KEK seal · Sufficient to meet the minds"><div class="face"><img src="meme_kek_gold.jpg" alt="Gold KEK Egyptian frog seal" loading="lazy"><span class="glare"></span></div><small>Kek Seal, Gold</small></button>
+        <button class="patch sh para" data-speed=".02" data-lb="meme_influence.jpg" data-cap="Power to Influence · psyops crest"><div class="face"><img src="meme_influence.jpg" alt="Power to Influence frog crest" loading="lazy"><span class="glare"></span></div><small>Power to Influence</small></button>
+        <button class="patch para" data-speed=".06" data-lb="#seal" data-cap="Official Bureau seal"><div class="face seal-face"><svg viewBox="0 0 200 200" role="img" aria-label="Bureau seal"><use href="#seal"/></svg><span class="glare"></span></div><small>Bureau Seal</small></button>
+        <button class="patch para" data-speed=".05" data-lb="meme_kek_black.jpg" data-cap="KEK seal · night issue"><div class="face"><img src="meme_kek_black.jpg" alt="Black and white KEK frog seal" loading="lazy"><span class="glare"></span></div><small>Kek Seal, Night Issue</small></button>
+        <button class="patch sq para" data-speed=".02" data-lb="meme_penguin.jpg" data-cap="Proletarian Memetics Laboratories"><div class="face"><img src="meme_penguin.jpg" alt="Proletarian Memetics Laboratories penguin" loading="lazy"><span class="glare"></span></div><small>Proletarian Labs</small></button>
+        <button class="patch sh para" data-speed=".07" data-lb="meme_redcross.jpg" data-cap="Memetic field medic"><div class="face"><img src="meme_redcross.jpg" alt="Memetic shield with a red cross" loading="lazy"><span class="glare"></span></div><small>Field Medic</small></button>
+        <button class="patch para" data-speed=".04" data-lb="meme_dragon.jpg" data-cap="Hazard handling detachment"><div class="face"><img src="meme_dragon.jpg" alt="Yellow dragon around a Memetic Hazard sign" loading="lazy" style="object-position:50% 40%"><span class="glare"></span></div><small>Hazard Detachment</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section class="mapsec" id="outbreak">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="st"><span data-k>Infection</span> <span data-k>Map</span></h2>
+      <div class="ref">Live simulation · not to scale<br>Not a real map of anything</div>
+    </div>
+    <div class="mapgrid">
+      <div class="mapbox">
+        <div class="mh"><span>Global ideosphere · sector view</span><span id="clock">T+00:00</span></div>
+        <svg id="map" viewBox="0 0 1000 500" role="img" aria-label="Abstract map with infection spreading from Site K-7 to other sectors"><g id="dots"></g><g id="arcs"></g><g id="seeds"></g></svg>
+        <div class="legend"><span><i style="background:#8a8a6a"></i>Unexposed mind</span><span><i style="background:var(--frog2)"></i>Infected</span><span><i style="background:var(--red)"></i>Outbreak site</span></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Minds reached</span><b id="minds">0</b></div>
+        <div class="stat"><span>Sectors compromised</span><b id="sectors">0/6</b></div>
+        <div class="log" id="log"><h5>Outbreak log</h5></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENLIST ================= -->
+<section class="enlist" id="enlist">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="st"><span data-k>Enlistment</span> <span data-k>Procedure</span></h2>
+      <div class="ref">Form 4-KEK · four steps<br>No medical exam required</div>
+    </div>
+    <div class="steps">
+      <div class="step para" data-speed=".02"><svg viewBox="0 0 54 54" aria-hidden="true"><rect x="5" y="12" width="44" height="32" rx="5" fill="none" stroke="#4b5320" stroke-width="3"/><path d="M5,20 H49" stroke="#4b5320" stroke-width="3"/><circle cx="39" cy="32" r="4" fill="#c42a1c"/></svg><div class="n">01</div><h3>Issue a wallet</h3><p>Install <a href="https://phantom.app" target="_blank" rel="noopener">Phantom</a> (or any Solana wallet). Write your seed phrase on paper and never show it to anyone, including the Bureau.</p></div>
+      <div class="step para" data-speed=".05"><svg viewBox="0 0 54 54" aria-hidden="true"><path d="M10,14 H44 L38,22 H4Z M10,30 H44 L38,38 H4Z" fill="#4b5320"/><path d="M4,22 H38 L44,30 H10Z" fill="#c42a1c"/></svg><div class="n">02</div><h3>Draw SOL rations</h3><p>Buy SOL on an exchange and send it to your Phantom address. Keep a little extra for network fees.</p></div>
+      <div class="step para" data-speed=".08"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="20" fill="none" stroke="#4b5320" stroke-width="3"/><circle cx="27" cy="27" r="11" fill="none" stroke="#4b5320" stroke-width="1.5"/><path d="M27,27 L27,7 A20,20 0 0,1 44,17Z" fill="#c42a1c" opacity=".8"/><circle cx="35" cy="34" r="2.6" fill="#4b5320"/></svg><div class="n">03</div><h3>Report to the exchange</h3><p>Open <a href="https://pump.fun" target="_blank" rel="noopener">pump.fun</a> or <a href="https://jup.ag" target="_blank" rel="noopener">Jupiter</a> and connect your wallet.</p></div>
+      <div class="step para" data-speed=".11"><svg viewBox="0 0 54 54" aria-hidden="true"><rect x="12" y="6" width="30" height="40" fill="none" stroke="#4b5320" stroke-width="3"/><path d="M18,16 H36 M18,23 H36 M18,30 H30" stroke="#4b5320" stroke-width="3"/><path d="M30,40 l5,5 10,-12" stroke="#c42a1c" stroke-width="4" fill="none"/></svg><div class="n">04</div><h3>Paste the CA</h3><p>Paste the official contract address below, check it twice, and swap SOL for $BMW. Welcome to the Bureau, operator.</p></div>
+    </div>
+    <div class="ca"><label>CONTRACT</label><code class="ca-val">CA: coming soon</code><button type="button" class="copy">COPY</button></div>
+    <p class="note">Only trust the CA shown here and pinned in the official channels. The Bureau will never DM you first.</p>
+  </div>
+</section>
+
+<!-- ================= REQUISITION ================= -->
+<section class="req" id="requisition">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="st"><span data-k>Requisition</span> <span data-k>Form</span></h2>
+      <div class="ref">Tokenomics · form 1B-SUPPLY<br>Complete in triplicate</div>
+    </div>
+    <div class="form para" id="form" data-speed="-.02">
+      <div class="fh"><div><h3>Requisition of memetic materiel</h3><div style="font-size:12px;opacity:.75">Bureau of Memetic Warfare · supply office · Site K-7</div></div><div>Form 1B-SUPPLY<br>Rev. 2026<br>Ticker: $BMW</div></div>
+      <div class="row"><div class="cb"><svg viewBox="0 0 28 28"><rect x="2" y="2" width="24" height="24"/><path d="M7,7 L21,21 M21,7 L7,21"/></svg></div><div class="k">Total supply requested</div><div class="v">1,000,000,000<sup>*</sup></div></div>
+      <div class="row"><div class="cb"><svg viewBox="0 0 28 28"><rect x="2" y="2" width="24" height="24"/><path d="M7,7 L21,21 M21,7 L7,21"/></svg></div><div class="k">Transaction tax (buy / sell)</div><div class="v">0% / 0%<sup>*</sup></div></div>
+      <div class="row"><div class="cb"><svg viewBox="0 0 28 28"><rect x="2" y="2" width="24" height="24"/><path d="M7,7 L21,21 M21,7 L7,21"/></svg></div><div class="k">Distribution method</div><div class="v">Fair launch<sup>*</sup></div></div>
+      <div class="row"><div class="cb"><svg viewBox="0 0 28 28"><rect x="2" y="2" width="24" height="24"/><path d="M7,7 L21,21 M21,7 L7,21"/></svg></div><div class="k">Liquidity disposition</div><div class="v">LP burned<sup>*</sup></div></div>
+      <div class="sig"><div><span class="line">K. Frog</span>Requesting officer</div><div><span class="line">Supply Office, K-7</span>Approving authority</div></div>
+      <div class="approved">APPROVED</div>
+    </div>
+    <p class="foot">* Figures to be confirmed at launch. Always verify supply, taxes and liquidity on-chain before buying.</p>
+  </div>
+</section>
+
+<!-- ================= COMMS ================= -->
+<section class="comms" id="comms">
+  <div class="wrap">
+    <h2 class="st"><span data-k>Comms</span> <span data-k>Channels</span></h2>
+    <p>Tune in. Frequencies open at launch.</p>
+    <div class="dials">
+      <a class="dial" href="#"><span class="knob"></span><b>X</b><span>FREQ 01</span></a>
+      
+      <a class="dial" href="#"><span class="knob"></span><b>DexScreener</b><span>FREQ 02</span></a>
+      <a class="dial" href="#"><span class="knob"></span><b>pump.fun</b><span>FREQ 03</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Bureau seal"><use href="#seal"/></svg>
+    <div>
+      <h4>Disclaimer</h4>
+      <p>$BMW (Bureau of Memetic Warfare) is a parody and a meme coin, made for entertainment only. It has no intrinsic value, no roadmap, no team promises and no expectation of financial return. Nothing on this page is financial advice. Crypto is volatile and you can lose everything you put in.</p>
+      <p>The "Bureau" is fictional. It is not affiliated with, endorsed by or connected to any government, military, intelligence agency, BMW AG (Bayerische Motoren Werke) or any real person or organisation. Meme artwork belongs to its original internet creators and is used here as parody.</p>
+      <div class="ca"><label>CA</label><code class="ca-val">CA: coming soon</code><button type="button" class="copy">COPY</button></div>
+      <p style="margin-top:22px;opacity:.6">© 2026 Bureau of Memetic Warfare. Declassified for your amusement.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button type="button" id="lbx">CLOSE ✕</button><img id="lbimg" alt=""><p id="lbcap"></p></div>
+<div class="toast" id="toast">CA COPIED</div>
+
+<script>
+var CA='';
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+
+  /* ---- CA boxes ---- */
+  $$('.ca-val').forEach(function(el){el.textContent=CA?CA:'CA: coming soon'});
+  var toast=$('#toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1600)}
+  $$('.copy').forEach(function(b){b.addEventListener('click',function(){
+    if(!CA){say('CA NOT YET ISSUED');return}
+    if(navigator.clipboard){navigator.clipboard.writeText(CA).then(function(){say('CA COPIED')},function(){say('COPY FAILED')})}
+    else{var t=document.createElement('textarea');t.value=CA;document.body.appendChild(t);t.select();try{document.execCommand('copy');say('CA COPIED')}catch(e){say('COPY FAILED')}t.remove()}
+  })});
+
+  /* ---- clouds ---- */
+  var sky=$('.sky');
+  for(var i=0;i<5;i++){var c=document.createElement('span');c.style.cssText='left:'+(8+i*19)+'%;top:'+(10+(i%3)*9)+'%;width:'+(70+i*13)+'px';c.className='cl';sky.insertBefore(c,sky.firstChild)}
+
+  /* ---- layout cache ---- */
+  var vh=innerHeight,vw=innerWidth,hero=$('.hero'),heroTop=0,heroH=0,hazTop=0,docH=0,paras=[];
+  var lWorld=$('#lWorld'),lRock=$('#lRock'),lPipes=$('#lPipes'),lTitle=$('#lTitle'),cage=$('#cage'),core=$('#core'),hud=$('#coreHud'),ptr=$('#ptr'),depth=$('#depth'),lvl=$('#lvl');
+  function absTop(el){var y=0;while(el){y+=el.offsetTop;el=el.offsetParent}return y}
+  function measure(){
+    vh=innerHeight;vw=innerWidth;heroTop=absTop(hero);heroH=hero.offsetHeight;hazTop=absTop($('#hazard'));docH=document.documentElement.scrollHeight;
+    paras=$$('[data-speed]').map(function(el){el.style.transform='';return {el:el,s:parseFloat(el.dataset.speed),c:absTop(el)+el.offsetHeight/2}});
+    sizeCanvas();
+    measureReveal();
+  }
+
+  /* ---- ideosphere canvas ---- */
+  var cv=$('#sphere'),cx=cv.getContext('2d'),W=0,H=0,DPR=1,nodes=[],edges=[],pulses=[],lastInf=0;
+  var WORDS=['kek','pepe','lol','$BMW','based','gm','wojak','F','OC','cope','ngmi','wagmi','doge','rare','smug','ser'];
+  function sizeCanvas(){
+    DPR=Math.min(2,window.devicePixelRatio||1);W=cv.clientWidth||vw;H=cv.clientHeight||vh;
+    cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);buildNet();
+  }
+  function buildNet(){
+    var n=W<600?46:Math.min(110,Math.round(W*H/16000));nodes=[];edges=[];pulses=[];
+    var cxm=W/2,cym=H*.42,R=Math.min(W,H)*.48;
+    for(var i=0;i<n;i++){
+      var a=Math.random()*Math.PI*2,r=Math.sqrt(Math.random())*R;
+      nodes.push({x:cxm+Math.cos(a)*r*1.35,y:cym+Math.sin(a)*r*.8,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,inf:0,t:0,w:i%4===0?WORDS[i%WORDS.length]:null});
+    }
+    var maxD=Math.max(90,Math.min(W,H)*.2);
+    for(i=0;i<n;i++)for(var j=i+1;j<n;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;if(dx*dx+dy*dy<maxD*maxD)edges.push([i,j])}
+    seed();
+    if(RM){nodes.forEach(function(n,i){if(i%3==0)n.inf=1;n.t=2000});drawNet(0)}
+  }
+  function seed(){nodes.forEach(function(n){n.inf=0});for(var k=0;k<3;k++){var p=nodes[Math.floor(Math.random()*nodes.length)];if(p){p.inf=1;p.t=0}}}
+  function stepNet(dt,now){
+    if(now-lastInf>(RM?0:300)){lastInf=now;
+      var cand=[];edges.forEach(function(e){var a=nodes[e[0]],b=nodes[e[1]];if(a.inf&&!b.inf)cand.push([e[0],e[1]]);else if(b.inf&&!a.inf)cand.push([e[1],e[0]])});
+      cand.sort(function(){return Math.random()-.5}).slice(0,5).forEach(function(c){pulses.push({a:c[0],b:c[1],p:0})});
+      var all=nodes.every(function(n){return n.inf});if(all||!cand.length&&!pulses.length)setTimeout(seed,1200);
+    }
+    for(var i=pulses.length-1;i>=0;i--){var q=pulses[i];q.p+=dt*.0014;if(q.p>=1){nodes[q.b].inf=1;nodes[q.b].t=0;pulses.splice(i,1)}}
+    nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;n.t+=dt});
+  }
+  function drawNet(now){
+    cx.clearRect(0,0,W,H);
+    cx.lineWidth=1;
+    edges.forEach(function(e){var a=nodes[e[0]],b=nodes[e[1]];cx.strokeStyle=(a.inf&&b.inf)?'rgba(98,179,58,.38)':'rgba(239,231,209,.11)';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()});
+    pulses.forEach(function(q){var a=nodes[q.a],b=nodes[q.b],x=a.x+(b.x-a.x)*q.p,y=a.y+(b.y-a.y)*q.p;cx.fillStyle='#b9f27a';cx.shadowColor='#62b33a';cx.shadowBlur=12;cx.beginPath();cx.arc(x,y,2.6,0,6.283);cx.fill();cx.shadowBlur=0});
+    cx.font='600 11px "IBM Plex Mono",monospace';cx.textAlign='center';
+    nodes.forEach(function(n){
+      var r=n.w?5:3;
+      if(n.inf){var pul=n.t<900?(1-n.t/900):0;cx.fillStyle='rgba(98,179,58,'+(.18+.5*pul)+')';cx.beginPath();cx.arc(n.x,n.y,r+5+pul*16,0,6.283);cx.fill();cx.fillStyle='#7fd04f'}
+      else cx.fillStyle='#d9d1b5';
+      cx.beginPath();cx.arc(n.x,n.y,r,0,6.283);cx.fill();
+      if(n.w){cx.fillStyle=n.inf?'#b9f27a':'rgba(239,231,209,.55)';cx.fillText(n.w,n.x,n.y-10)}
+    });
+  }
+
+  /* ---- infection map ---- */
+  var C=[[[80,90],[260,60],[330,110],[300,170],[250,200],[210,260],[170,240],[120,180],[70,150]],[[230,280],[300,290],[320,340],[290,420],[260,470],[240,410],[225,330]],[[440,85],[560,70],[585,120],[520,152],[470,150],[436,120]],[[450,180],[560,170],[600,230],[570,330],[520,390],[490,330],[460,260]],[[590,60],[800,50],[900,100],[880,170],[800,220],[720,250],[650,200],[600,150]],[[780,320],[880,310],[905,370],[820,400],[770,370]],[[330,40],[400,35],[392,80],[342,82]]];
+  function inPoly(x,y,p){var c=false;for(var i=0,j=p.length-1;i<p.length;j=i++){if(((p[i][1]>y)!=(p[j][1]>y))&&(x<(p[j][0]-p[i][0])*(y-p[i][1])/(p[j][1]-p[i][1])+p[i][0]))c=!c}return c}
+  var SEEDS=[{x:520,y:112,t:0,n:'Site K-7',m:'Patient zero: one intern posts one frog. <b>Sector 0</b> compromised.'},{x:190,y:150,t:3,n:'Sector 1',m:'Group chat in <b>Sector 1</b> stops using words. Reaction images only.'},{x:720,y:150,t:5,n:'Sector 2',m:'<b>Sector 2</b>: office printer outputs "kek" unprompted.'},{x:515,y:270,t:7,n:'Sector 3',m:'<b>Sector 3</b> forum reaches critical shitpost mass.'},{x:270,y:370,t:9,n:'Sector 4',m:'<b>Sector 4</b>: grandparents now sending memes. Containment failed.'},{x:830,y:355,t:11,n:'Sector 5',m:'<b>Sector 5</b> fully green. Bureau declares the ideosphere won.'}];
+  var mapSvg=$('#map'),dotsG=$('#dots'),arcsG=$('#arcs'),seedsG=$('#seeds'),dots=[],NS='http://www.w3.org/2000/svg';
+  for(var yy=20;yy<490;yy+=13)for(var xx=20;xx<990;xx+=13){
+    for(var k=0;k<C.length;k++)if(inPoly(xx,yy,C[k])){
+      var d=document.createElementNS(NS,'circle');d.setAttribute('cx',xx);d.setAttribute('cy',yy);d.setAttribute('r',3.6);d.setAttribute('class','d');dotsG.appendChild(d);
+      var best=1e9;SEEDS.forEach(function(s){var dd=Math.hypot(s.x-xx,s.y-yy);var tt=s.t+dd/55+Math.random()*.8;if(tt<best)best=tt});
+      dots.push({el:d,t:best,on:false});break;
+    }
+  }
+  var logEl=$('#log'),mapStart=-1,mapShown=0,mapVisible=false,mapDone=false;
+  function resetMap(){dots.forEach(function(d){d.on=false;d.el.setAttribute('class','d')});arcsG.innerHTML='';seedsG.innerHTML='';$$('#log p').forEach(function(p){p.remove()});mapShown=0}
+  function stepMap(now){
+    if(mapStart<0)mapStart=now;
+    var t=RM?99:(now-mapStart)/1000,count=0;
+    dots.forEach(function(d){if(!d.on&&t>=d.t){d.on=true;d.el.setAttribute('class','d on')}if(d.on)count++});
+    while(mapShown<SEEDS.length&&t>=SEEDS[mapShown].t){
+      var s=SEEDS[mapShown];
+      if(mapShown>0){var o=SEEDS[0],mx=(o.x+s.x)/2,my=Math.min(o.y,s.y)-90;var a=document.createElementNS(NS,'path');a.setAttribute('d','M'+o.x+','+o.y+' Q'+mx+','+my+' '+s.x+','+s.y);a.setAttribute('class','arc');arcsG.appendChild(a)}
+      var g=document.createElementNS(NS,'g');g.innerHTML='<circle class="ring" cx="'+s.x+'" cy="'+s.y+'" r="7"/><circle class="seed" cx="'+s.x+'" cy="'+s.y+'" r="6"/><text class="lab" x="'+(s.x+11)+'" y="'+(s.y-9)+'">'+s.n.toUpperCase()+'</text>';seedsG.appendChild(g);
+      var p=document.createElement('p');var mm=Math.floor(s.t*7);p.innerHTML='T+'+String(Math.floor(mm/60)).padStart(2,'0')+':'+String(mm%60).padStart(2,'0')+' · '+s.m;logEl.appendChild(p);(function(p){setTimeout(function(){p.classList.add('on')},30)})(p);
+      mapShown++;
+    }
+    $('#minds').textContent=(count*1337).toLocaleString('en-US');$('#sectors').textContent=mapShown+'/6';
+    var mm2=Math.floor(Math.min(t,16)*7);$('#clock').textContent='T+'+String(Math.floor(mm2/60)).padStart(2,'0')+':'+String(mm2%60).padStart(2,'0');
+    if(!RM&&t>19){mapStart=now;resetMap()}
+  }
+
+  /* ---- glitch to kek ---- */
+  var kEls=$$('[data-k]'),lastG=0;
+  function glitch(inf,now){
+    if(RM||inf<.04||now-lastG<140)return;lastG=now;
+    if(Math.random()>inf*.9)return;
+    var el=kEls[Math.floor(Math.random()*kEls.length)];if(el.dataset.g)return;
+    var r=el.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
+    var orig=el.textContent;el.dataset.g='1';var up=orig===orig.toUpperCase();
+    var n=Math.max(1,Math.round(orig.split(/\s+/).length));var rep=[];for(var i=0;i<n;i++)rep.push(up?'KEK':'kek');
+    el.textContent=rep.join(' ');el.classList.add('glitch');
+    setTimeout(function(){el.textContent=orig;el.classList.remove('glitch');delete el.dataset.g},260+Math.random()*420);
+  }
+
+  /* ---- one rAF loop ---- */
+  var tint=$('#tint'),mbar=$('#mbar'),mval=$('#mval'),prev=performance.now(),coreOn=false;
+  var reveal=[],obT=0,obB=0;
+  function measureReveal(){reveal=$$('.row:not(.on),#form:not(.on)').map(function(el){return {el:el,t:absTop(el)+Math.min(el.offsetHeight*.4,200)}});var ob=$('#outbreak');obT=absTop(ob);obB=obT+ob.offsetHeight}
+  function checkReveal(y){
+    for(var i=reveal.length-1;i>=0;i--){if(y+vh>reveal[i].t){reveal[i].el.classList.add('on');reveal.splice(i,1)}}
+    mapVisible=(y+vh*.75>obT)&&(y+vh*.25<obB);
+  }
+  function clamp(v,a,b){return v<a?a:v>b?b:v}
+  function frame(now){
+    var dt=Math.min(64,now-prev);prev=now;
+    var y=window.pageYOffset;
+    /* hero descent */
+    var travel=Math.max(1,heroH-vh),p=clamp((y-heroTop)/travel,0,1);
+    if(!RM){
+      var D=p*2.3*vh;
+      lWorld.style.transform='translate3d(0,'+(-D)+'px,0)';
+      lRock.style.transform='translate3d(0,'+(-D*.72)+'px,0)';
+      lPipes.style.transform='translate3d(0,'+(-D*1.35)+'px,0)';
+      lTitle.style.transform='translate3d(0,'+(D*.45)+'px,0)';lTitle.style.opacity=clamp(1-p*5,0,1);
+      cage.style.opacity=clamp((p-.12)/.08,0,1)*clamp((.86-p)/.08,0,1);
+      var co=clamp((p-.72)/.2,0,1);core.style.opacity=co;hud.style.opacity=clamp((p-.86)/.1,0,1);coreOn=co>0&&y<heroTop+heroH;
+      hud.style.pointerEvents=p>.9?'auto':'none';
+      ptr.style.top=(p*100)+'%';depth.textContent='-'+String(Math.round(p*340)).padStart(3,'0')+' m';
+      lvl.textContent=p<.1?'SURFACE':p<.4?'STRATA':p<.62?'SUBLEVEL 2':p<.8?'BLAST DOOR':'SUBLEVEL 3';
+      for(var i=0;i<paras.length;i++){var q=paras[i],off=(q.c-(y+vh/2))*q.s;if(Math.abs(q.c-(y+vh/2))<vh*1.6)q.el.style.transform='translate3d(0,'+off.toFixed(1)+'px,0)'}
+    }
+    if(!RM&&coreOn){stepNet(dt,now);drawNet(now)}
+    /* infection */
+    var inf=clamp((y+vh*.5-hazTop)/Math.max(1,docH-vh-hazTop+vh*.5),0,1);
+    tint.style.opacity=(inf*.85).toFixed(3);
+    mbar.style.transform='scaleX('+inf+')';mval.textContent=String(Math.round(inf*100)).padStart(2,'0')+'%';
+    glitch(inf,now);
+    checkReveal(y);
+    if(mapVisible&&!mapDone){stepMap(now);if(RM)mapDone=true}
+    if(!RM)requestAnimationFrame(frame);
+  }
+  measure();
+  requestAnimationFrame(frame);
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(measure,150)});
+  window.addEventListener('load',measure);
+  if(RM){var qd=false;window.addEventListener('scroll',function(){if(qd)return;qd=true;requestAnimationFrame(function(t){qd=false;frame(t)})},{passive:true})}
+
+  /* ---- patch tilt ---- */
+  if(!RM&&matchMedia('(hover:hover)').matches){
+    $$('.patch').forEach(function(pt){
+      var face=pt.querySelector('.face'),gl=pt.querySelector('.glare');
+      pt.addEventListener('mousemove',function(e){var r=face.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;face.style.transform='rotateX('+((.5-y)*22)+'deg) rotateY('+((x-.5)*22)+'deg) scale(1.05)';gl.style.setProperty('--gx',x*100+'%');gl.style.setProperty('--gy',y*100+'%')});
+      pt.addEventListener('mouseleave',function(){face.style.transform=''});
+      face.style.transition='transform .15s ease-out';
+    });
+  }
+
+  /* ---- lightbox ---- */
+  var lb=$('#lb'),lbimg=$('#lbimg'),lbcap=$('#lbcap'),lastFocus=null;
+  function sealDataUrl(){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs>'+document.getElementById('ringpath').outerHTML+'</defs>'+document.getElementById('seal').innerHTML+'</svg>';return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)}
+  function openLb(src,cap){lastFocus=document.activeElement;lbimg.src=src==='#seal'?sealDataUrl():src;lbimg.alt=cap||'';lbcap.textContent=cap||'';lb.classList.add('open');$('#lbx').focus()}
+  function closeLb(){lb.classList.remove('open');lbimg.removeAttribute('src');if(lastFocus)lastFocus.focus()}
+  $$('[data-lb]').forEach(function(el){el.addEventListener('click',function(){openLb(el.dataset.lb,el.dataset.cap)})});
+  $$('figure[data-lb]').forEach(function(f){f.tabIndex=0;f.addEventListener('keydown',function(e){if(e.key==='Enter')openLb(f.dataset.lb,f.dataset.cap)})});
+  $('#lbx').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb()});
+})();
+</script>
+</body>
+</html>
